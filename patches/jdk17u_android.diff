@@ -336,8 +336,8 @@ index 3c9d1055f..e4260da69 100644
  
  ################################################################################
  
--ifeq ($(call isTargetOs, linux macosx), true)
-+ifeq ($(call isTargetOs, linux macosx android), true)
+-ifeq ($(call isTargetOs, linux macosx windows), true)
++ifeq ($(call isTargetOs, linux macosx windows android), true)
  
    $(eval $(call SetupJdkLibrary, BUILD_LIBEXTNET, \
        NAME := extnet, \
