@@ -2284,6 +2284,19 @@ index 503a2457b..d6ac325c8 100644
  #endif
  
      if (exec_path == NULL) {
+diff --git a/src/java.base/unix/native/libnet/net_util_md.c b/src/java.base/unix/native/libnet/net_util_md.c
+index 7c939e80f..92bec981e 100644
+--- a/src/java.base/unix/native/libnet/net_util_md.c
++++ b/src/java.base/unix/native/libnet/net_util_md.c
+@@ -154,7 +154,7 @@ jint  IPv6_supported()
+      * Linux - check if any interface has an IPv6 address.
+      * Don't need to parse the line - we just need an indication.
+      */
+-#ifdef __linux__
++#if defined(__linux__) && !defined(__ANDROID__)
+     {
+         FILE *fP = fopen("/proc/net/if_inet6", "r");
+         char buf[255];
 diff --git a/src/java.base/unix/native/libnet/net_util_md.h b/src/java.base/unix/native/libnet/net_util_md.h
 index 68835987b..eafd4509e 100644
 --- a/src/java.base/unix/native/libnet/net_util_md.h
