@@ -59920,7 +59920,7 @@ index bd0bd8c2c9..f6273dff47 100644
  #include <arpa/inet.h>
  #include <net/route.h>
  #include <sys/utsname.h>
- @@ -319,6 +319,7 @@ jint  IPv6_supported()
+@@ -319,6 +319,7 @@ jint  IPv6_supported()
      SOCKADDR sa;
      socklen_t sa_len = sizeof(sa);
  
