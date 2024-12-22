@@ -33,7 +33,7 @@ jobs:
         name: 'jre8-${{matrix.arch}}'
         path: jre8*.tar.xz
 
-  fcl:
+  zalith:
     needs: build_android
     runs-on: ubuntu-22.04
     steps:
@@ -44,31 +44,31 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: jre8-aarch32
-        path: fcl
+        path: zalith
 
     - name: Get jre8-aarch64
       uses: actions/download-artifact@v4
       with:
         name: jre8-aarch64
-        path: fcl
+        path: zalith
 
     - name: Get jre8-x86
       uses: actions/download-artifact@v4
       with:
         name: jre8-x86
-        path: fcl
+        path: zalith
 
     - name: Get jre8-x86_64
       uses: actions/download-artifact@v4
       with:
         name: jre8-x86_64
-        path: fcl
+        path: zalith
 
     - name: Repack JRE
-      run: bash "repack_jre.sh" $GITHUB_WORKSPACE/fcl $GITHUB_WORKSPACE/fcl/jre8-multiarch
+      run: bash "repack_jre.sh" $GITHUB_WORKSPACE/zalith $GITHUB_WORKSPACE/zalith/jre8-multiarch
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
           name: jre8-multiarch
-          path: fcl/jre8-multiarch/*
+          path: zalith/jre8-multiarch/*
